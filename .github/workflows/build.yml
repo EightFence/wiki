@@ -54,6 +54,7 @@ jobs:
         context: .  
         file: dev/build/Dockerfile
         push: true
+        tags: |
           ghcr.io/EightFence/wiki:canary
           ghcr.io/EightFence/wiki:canary-${{ env.REL_VERSION_STRICT }}
 
