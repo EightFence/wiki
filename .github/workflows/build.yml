@@ -55,8 +55,8 @@ jobs:
         file: dev/build/Dockerfile
         push: true
         tags: |
-          ghcr.io/EightFence/wiki:canary
-          ghcr.io/EightFence/wiki:canary-${{ env.REL_VERSION_STRICT }}
+          ghcr.io/eightfence/wiki:canary
+          ghcr.io/eightfence/wiki:canary-${{ env.REL_VERSION_STRICT }}
 
   beta:
     name: Publish Beta Images
@@ -83,11 +83,11 @@ jobs:
       run: |
         echo "Creating the manifests..."
 
-        docker manifest create ghcr.io/EightFence/wiki:beta-$REL_VERSION_STRICT ghcr.io/EightFence/wiki:canary-$REL_VERSION_STRICT
+        docker manifest create ghcr.io/eightfence/wiki:beta-$REL_VERSION_STRICT ghcr.io/eightfence/wiki:canary-$REL_VERSION_STRICT
 
         echo "Pushing the manifests..."
 
-        docker manifest push -p ghcr.io/EightFence/wiki:beta-$REL_VERSION_STRICT
+        docker manifest push -p ghcr.io/eightfence/wiki:beta-$REL_VERSION_STRICT
 
   release:
     name: Publish Release Images
@@ -113,12 +113,12 @@ jobs:
 
     - name: Create and Push Manifests
       run: |
-        docker manifest create ghcr.io/EightFence/wiki:$REL_VERSION_STRICT ghcr.io/EightFence/wiki:canary-$REL_VERSION_STRICT
-        docker manifest create ghcr.io/EightFence/wiki:latest ghcr.io/EightFence/wiki:canary-$REL_VERSION_STRICT
+        docker manifest create ghcr.io/eightfence/wiki:$REL_VERSION_STRICT ghcr.io/eightfence/wiki:canary-$REL_VERSION_STRICT
+        docker manifest create ghcr.io/eightfence/wiki:latest ghcr.io/eightfence/wiki:canary-$REL_VERSION_STRICT
 
         echo "Pushing the manifests..."
 
-        docker manifest push -p ghcr.io/EightFence/wiki:$REL_VERSION_STRICT
-        docker manifest push -p ghcr.io/EightFence/wiki:latest
+        docker manifest push -p ghcr.io/eightfence/wiki:$REL_VERSION_STRICT
+        docker manifest push -p ghcr.io/eightfence/wiki:latest
 
 
